@@ -27,12 +27,17 @@ app.use(function(req, res, next) {
 // Setup sockets 
 io.on('connection', (socket) => {
     socket.on('leaderboardPublisherFromSingleUser', (user) => {
-      
+
+      if (user == null) {
+        io.emit('leaderboardSubscriber', leaderboardList)
+        return
+      }
+
       console.log('leaderboardPublisherFromSingleUser', user);
       
       // Find if the user is already registered
       const oldUserMatchingId = leaderboardList.find(oldUser => {
-        return user.id == oldUser.id;
+        return user.id === oldUser.id;
       })
 
       // Edit the score
@@ -49,7 +54,7 @@ io.on('connection', (socket) => {
 
   socket.on('leaderboardPublisherClear', () => {
     console.log('Clearing leaderboard');
-    
+
     leaderboardList = [];
     io.emit('leaderboardSubscriber', leaderboardList)
 })
