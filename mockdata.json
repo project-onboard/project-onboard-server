@@ -1,0 +1,71 @@
+{
+  "title": "Slack",
+  "modules": [
+    {
+      "title": "Basics",
+      "sections": [
+        {
+          "title": "Introduction",
+          "contents": [
+            {
+              "title": "Welcome!",
+              "type": "Text",
+              "text": "sample content text"
+            },
+            {
+              "title": "Create an Account",
+              "type": "Task"
+            }
+          ]
+        },
+        {
+          "title": "Introduction 2",
+          "contents": [
+            {
+              "title": "Welcome!",
+              "type": "Text",
+              "text": "sample content text"
+            },
+            {
+              "title": "Create an Account",
+              "type": "Task"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Advanced",
+      "sections": [
+        {
+          "title": "Introduction Advanced",
+          "contents": [
+            {
+              "title": "Welcome!",
+              "type": "Text",
+              "text": "sample content text"
+            },
+            {
+              "title": "Create an Account",
+              "type": "Task"
+            }
+          ]
+        },
+        {
+          "title": "Introduction 2 Advanced",
+          "contents": [
+            {
+              "title": "Welcome!",
+              "type": "Text",
+              "text": "sample content text"
+            },
+            {
+              "title": "Create an Account",
+              "type": "Task"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  "name": "onboard-backend",
+  "version": "1.0.0",
+  "description": "onboard backend",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/project-onboard/project-onboard-backend.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/project-onboard/project-onboard-backend/issues"
+  },
+  "homepage": "https://github.com/project-onboard/project-onboard-backend#readme",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "express": "^4.16.4",
+    "mongoose": "^5.4.19",
+    "socket.io": "^2.2.0"
+  }
+}
