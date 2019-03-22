@@ -42,9 +42,11 @@ io.on('connection', (socket) => {
 
       // Edit the score
       if (oldUserMatchingId == null) {
+        user.score = 1
         leaderboardList.push(user);
       } else {
-        oldUserMatchingId.score = user.score;
+        oldUserMatchingId.score += 1
+        // oldUserMatchingId.score = user.score;
       }
 
       leaderboardList.sort((a, b) => (a.score < b.score) ? 1 : -1);
