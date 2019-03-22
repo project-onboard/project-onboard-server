@@ -46,6 +46,13 @@ io.on('connection', (socket) => {
 
       io.emit('leaderboardSubscriber', leaderboardList)
   })
+
+  socket.on('leaderboardPublisherClear', () => {
+    console.log('Clearing leaderboard');
+    
+    leaderboardList = [];
+    io.emit('leaderboardSubscriber', leaderboardList)
+})
 });
 http.listen(3000, function(){
   console.log('listening to http on *:3000');
