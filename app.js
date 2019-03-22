@@ -13,6 +13,9 @@ const bodyParser = require("body-parser");
 app.use(bodyParser.urlencoded());
 app.use(bodyParser.json());
 
+// Variables
+var leaderboardList = []
+
 // Setup response headers
 app.use(function(req, res, next) {
   res.header("Access-Control-Allow-Origin", "*");
@@ -23,10 +26,25 @@ app.use(function(req, res, next) {
 
 // Setup sockets 
 io.on('connection', (socket) => {
-    socket.on('leaderboardPublisherFromSingleUser', (data) => {
+    socket.on('leaderboardPublisherFromSingleUser', (user) => {
       
-      console.log('leaderboardPublisherFromSingleUser', data)      
-      io.emit('leaderboardSubscriber', data)
+      console.log('leaderboardPublisherFromSingleUser', user);
+      
+      // Find if the user is already registered
+      const oldUserMatchingId = leaderboardList.find(oldUser => {
+        return user.id == oldUser.id;
+      })
+
+      // Edit the score
+      if (oldUserMatchingId == null) {
+        leaderboardList.push(user);
+      } else {
+        oldUserMatchingId.score = user.score;
+      }
+
+      leaderboardList.sort((a, b) => (a.score < b.score) ? 1 : -1);
+
+      io.emit('leaderboardSubscriber', leaderboardList)
   })
 });
 http.listen(3000, function(){
